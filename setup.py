@@ -1,13 +1,12 @@
 from os.path import dirname, join
 from setuptools import setup, find_packages
 
-
 with open(join(dirname(__file__), 'reminder/VERSION'), 'rb') as f:
     version = f.read().decode('ascii').strip()
 
 
 setup(
-    name='Service-Reminder',
+    name='reminder',
     version=version,
     description='A Service to keep track of vehicle service date',
     long_description=open('README.md').read(),
@@ -20,7 +19,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     entry_points={
-        'console_scripts': ['service-reminder = reminder.commands.launch:execute']
+        'console_scripts': ['service-reminder=reminder.commands.launch:execute']
     },
     classifiers=[
         'Framework :: Scrapy',
