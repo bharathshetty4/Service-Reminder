@@ -19,15 +19,15 @@ setup(
     include_package_data=True,
     zip_safe=False,
     entry_points={
-        'console_scripts': ['service-reminder=reminder.commands.launch:execute']
+        'console_scripts': ['reminder=reminder.launch.launch:execute']
     },
     classifiers=[
-        'Framework :: Scrapy',
-        'Development Status :: 5 - Production/Stable',
+        'Framework :: Reminder',
+        'Development Status :: 1 - Development',
         'Environment :: Console',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: OS Independent',
+        'License :: OSI Approved :: Apache Software License',
+        'Operating System :: Ubuntu',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
