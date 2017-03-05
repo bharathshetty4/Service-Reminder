@@ -1,23 +1,24 @@
 import argparse
 import sys
 from reminder.add.add import AddService
+from reminder.delete.delete import DeleteService
 
 
 class MyParser(argparse.ArgumentParser):
 
     def error(self, message, usage=""):
-        sys.stderr.write('error: %s\n' % message)
+        sys.stderr.write('\nError: %s\n' % message)
         self.print_help(usage)
         sys.exit(2)
 
     def print_help(self, usage="", file=None):
-        print('\nusage: reminder [positional Arguments] [optional Arguments]\n\n'
-              'positional arguments:\n'
+        print('\nUsage: reminder [positional Arguments] [optional Arguments]\n\n'
+              'Positional arguments:\n'
               '  add                   Add a Service\n'
               '  delete                Delete a Service\n'
               '  create                Create the Reminder\n'
               '  show                  Show the Services registered\n\n'
-              'optional arguments:\n'
+              'Optional arguments:\n'
               '  -h, --help             show this help message and exit\n'
               '  -n NAME, --name NAME,  name of the service, Should be unique\n'
               '  -d DATE, --date DATE,  Date of the Purchase in the format of YYYY/MM/DD\n'
@@ -28,15 +29,13 @@ class MyParser(argparse.ArgumentParser):
               '  -b BEFORE, --before BEFORE,  Remind n days before the due, Default is 3 day before, Supported Usage 5d, 1w, [6m]\n'
               )
         usage_show = "Example Usage: " + usage
-        print(usage_show)
+        print(usage_show+"\n")
 
     def parse_arguments(self):
         parser = MyParser()
 
-        parser.add_argument('add', nargs='*', help="Add a Service")
-        parser.add_argument('delete', nargs='*', help="Delete a Service")
-        parser.add_argument('create', nargs='?', help="Create the Reminder")
-        parser.add_argument('show', nargs='?', help="Show the Services registered")
+        parser.add_argument('pos_arg', nargs='*', help="takes positional argument")
+
 
         # Arguments needed by the create
         parser.add_argument('-n', '--name', type=str,
@@ -53,9 +52,7 @@ class MyParser(argparse.ArgumentParser):
 
         args = parser.parse_args()
 
-        print ("args comes here", args)
-        if args.add:
-            print("add called")
+        if 'add' in args.pos_arg:
 
             if not args.name or not args.date or not args.interval:
                 error_message = "Expected one or more arguments"
@@ -76,22 +73,25 @@ class MyParser(argparse.ArgumentParser):
 
             sys.exit(2)
 
-        if args.delete:
-            print("delete called")
+        if 'delete' in args.pos_arg:
 
             if not args.name:
                 error_message = "Expected one or more arguments"
                 usage = "'reminder delete --name Bike'"
                 self.error(error_message, usage)
 
+            # Create a Dict
+            service = {}
+            service["name"] = args.name
+
+            DeleteService().delete_service(service)
+
             sys.exit(2)
 
-        if args.create:
-            print("create called")
+        if 'create' in args.pos_arg:
 
             sys.exit(2)
 
-        if args.show:
-            print("show called")
+        if 'show' in args.pos_arg:
 
             sys.exit(2)
