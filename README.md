@@ -35,4 +35,9 @@ You can also delete this section by running,
 
 **Step 4 : Creating the Reminder**
 
+This function is not developed yet, Idea here is to take all the services defined in the conf file and show it to the user. 
+
+
+**Step 5 : Creating the Reminder**
+
 This function is not developed yet, Idea here is to take all the services defined in the conf file and send a reminder to the given email address using the gmail account defined in conf file.
