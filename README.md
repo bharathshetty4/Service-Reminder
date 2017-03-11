@@ -33,7 +33,7 @@ You can also delete this section by running,
 ***` reminder delete --name Bike `***
 
 
-**Step 4 : Creating the Reminder**
+**Step 4 : Listing the Services**
 
 This function is not developed yet, Idea here is to take all the services defined in the conf file and show it to the user. 
 
