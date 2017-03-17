@@ -2,7 +2,7 @@ import argparse
 import sys
 from reminder.add.add import AddService
 from reminder.delete.delete import DeleteService
-
+from reminder.list.list import ListService
 
 class MyParser(argparse.ArgumentParser):
 
@@ -17,7 +17,7 @@ class MyParser(argparse.ArgumentParser):
               '  add                   Add a Service\n'
               '  delete                Delete a Service\n'
               '  create                Create the Reminder\n'
-              '  show                  Show the Services registered\n\n'
+              '  list                  List the Services registered\n\n'
               'Optional arguments:\n'
               '  -h, --help             show this help message and exit\n'
               '  -n NAME, --name NAME,  [Required]Name of the service, Should be unique\n'
@@ -92,6 +92,8 @@ class MyParser(argparse.ArgumentParser):
 
             sys.exit(2)
 
-        if 'show' in args.pos_arg:
+        if 'list' in args.pos_arg:
+
+            ListService().list_service()
 
             sys.exit(2)

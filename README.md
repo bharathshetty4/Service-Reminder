@@ -13,7 +13,7 @@ After the installation you can check the application status by running ***`remin
 **Step 2 : Creating a Configuration file**
 
  A configuration file is need for the application, the structure of the file should be **/etc/reminder/reminder.conf**.
- An email [supports only Gmail as of now] address and Password should be entered in the created file, which is needed to send the calendar invite.
+ An email [supports only Gmail as of now] address and Password should be entered in the created file under the DEFAULT section, which is needed to send the calendar invite.
 
  Sample conf file is available in [here](reminder.conf.sample).
 
