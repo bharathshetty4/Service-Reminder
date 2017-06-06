@@ -2,7 +2,7 @@
 
 ***Service Reminder*** is a project can be used Create a series of Calendar Event for any service automatically. The Application is written in Python (2.7) and Currently supports only Gmail account to send the Calendar events.
 
-#How to Use
+# How to Use
 
 **Step 1 : Install the Application**
 
@@ -12,7 +12,7 @@ After the installation you can check the application status by running ***`remin
 
 **Step 2 : Creating a Configuration file**
 
- A configuration file is need for the application, the structure of the file should be **/etc/reminder/reminder.conf**.
+ A configuration file is needed for the application, the structure of the file should be **/etc/reminder/reminder.conf**.
  An email [supports only Gmail as of now] address and Password should be entered in the created file under the DEFAULT section, which is needed to send the calendar invite.
 
  Sample conf file is available in [here](reminder.conf.sample).
@@ -35,7 +35,9 @@ You can also delete this section by running,
 
 **Step 4 : Listing the Services**
 
-This function is not developed yet, Idea here is to take all the services defined in the conf file and show it to the user. 
+After adding some services to the file, we can list all the services created using the below command,
+
+***` reminder list `***
 
 
 **Step 5 : Creating the Reminder**
