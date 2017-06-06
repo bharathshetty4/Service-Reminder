@@ -3,6 +3,7 @@ import sys
 from reminder.add.add import AddService
 from reminder.delete.delete import DeleteService
 from reminder.list.list import ListService
+from reminder.invite.invite import SendInvite
 
 class MyParser(argparse.ArgumentParser):
 
@@ -89,6 +90,8 @@ class MyParser(argparse.ArgumentParser):
             sys.exit(2)
 
         if 'create' in args.pos_arg:
+
+            SendInvite().send_invite()
 
             sys.exit(2)
 
